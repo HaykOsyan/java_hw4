@@ -1,6 +1,7 @@
 package homework4;
 
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class DequeTasks {
@@ -33,5 +34,28 @@ public class DequeTasks {
             System.out.println(deq);
         }
         rotateDeque(numbers, 3);
+
+        Deque<String> deque = new LinkedList<>();
+        deque.add("cherry");
+        deque.add("apple");
+        deque.add("banana");
+        deque.add("grape");
+        deque.add("apple");
+        deque.add("cherry");
+        deque.add("cherry");
+        deque.add("apple");
+        deque.add("cherry");
+
+        removeAllOccurrences(deque, "cherry");
+        System.out.println(deque);
+    }
+
+    public static void removeAllOccurrences(Deque<String> deque, String value) {
+        Iterator<String> iterator = deque.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(value)) {
+                iterator.remove();
+            }
+        }
     }
 }
